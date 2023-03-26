@@ -1,3 +1,5 @@
+import { Card, CardContent, Typography } from "@mui/material";
+
 export interface PostProps {
   id: number
   title: string
@@ -6,9 +8,21 @@ export interface PostProps {
 
 export function PostCard(props: PostProps) {
   return (
-    <div key={props.id}>
-      <h1>{props.title}</h1>
-      <p>{props.body}</p>
-    </div>
+    <Card
+      key={props.id}
+      sx={{
+        width: 275,
+        height: 400
+      }}
+    >
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {props.title}
+        </Typography>
+        <Typography color="text.secondary">
+          {props.body}
+        </Typography>
+      </CardContent>
+    </Card>
   )
 }
